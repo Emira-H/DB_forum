@@ -1,4 +1,4 @@
-from connection import Connection
+from .connection import Connection
 
 class MessageModel:
 
@@ -8,7 +8,8 @@ class MessageModel:
 
     def write_message(self, author, content):
         self.db.initialize_connection()
-        self.db.cursor.execute("INSERT INTO message (author, pusblishing_date, content) VALUES (%s, NOW(),%s);",author, content)
+        self.db.cursor.execute("INSERT INTO message (author, publishing_date, content) VALUES (%s, NOW(),%s);",(author, content))
+        self.db.connection.commit()
         self.db.close_connection()
 
     def get_message(self):
