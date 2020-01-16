@@ -12,5 +12,5 @@ class MessageView:
 
     def display_message(self):
         view = self.vm.get_message()
-        for element in  view:
+        for element in view:
             print(f"Voici le message de {element['author']} datant du {element[2]}: {element[1]}")
